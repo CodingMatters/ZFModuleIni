@@ -24,20 +24,29 @@
  * THE SOFTWARE.
  */
 
-return [
-    'navigation' => [
-        'default' => [
-            // HOME page
-            [
-                'label' => 'Home',
-                'route' => 'home',
-                'active' => true
-            ],
-            // About page
-            // [
-            //     'label' => 'About',
-            //     'route' => 'about'
-            // ]
-        ]
-    ]
-];
+namespace Application\Factory;
+
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+use Application\Options\ModuleOptions;
+
+/**
+ * Application\Factory\ModuleOptionsFactory
+ *
+ * @package Application\Factory
+ */
+class ModuleOptionsFactory implements FactoryInterface
+{
+    protected $options = [];
+    
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $config = $serviceLocator->get('Config')['myapp'];
+        
+        if (isset($config) && !empty($config)) {
+            $this->options = $config;
+        }
+        
+        return new ModuleOptions($this->options);
+    }
+}

@@ -1,6 +1,11 @@
-<div class="row-fluid">
+<div class="row">
     <footer>
         <hr>
-        <p>Copyright &copy; <?php echo date('Y') ?> by <a href="<?php echo $this->url('home') ?>">Object Coding Technology, Inc.</a> <?php echo $this->translate('All rights reserved.') ?></p>
+        <p>
+            <?php echo $this->year; ?>
+            Copyright &copy;
+            <a href="<?php echo $this->url('home') ?>"> <?php echo $this->org; ?></a>. 
+            <?php echo $this->translate('All rights reserved') . "."; ?>
+        </p>
     </footer>
 </div>

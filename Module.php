@@ -47,9 +47,17 @@ class Module implements
 {    
     public function onBootstrap(MvcEvent $event)
     {
-        $eventManager        = $event->getApplication()->getEventManager();
+        $application = $event->getApplication();        
         $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
+        $moduleRouteListener->attach($application->getEventManager());
+        
+        $seviceManager = $application->getServiceManager();
+        $applicationVariables = $seviceManager->get('myapp_module_options');
+        
+        $myapp = $applicationVariables->toArray();
+        
+        $viewModel = $event->getViewModel();
+        $viewModel->setVariables($myapp);
     }
     
     public function getConfig()

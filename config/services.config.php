@@ -35,7 +35,8 @@ return [
     ],
     
     'factories' => [
-        
+        'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        'myapp_module_options' => 'Application\Factory\ModuleOptionsFactory'
     ],
     
     'invokables' => [
