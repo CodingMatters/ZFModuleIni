@@ -38,6 +38,16 @@ return [
                     ]
                 ]
             ],
+            'about' => [
+                'type'      => 'Zend\Mvc\Router\Http\Literal',
+                'options'   => [
+                    'route'     => '/about',
+                    'defaults'  => [
+                        'controller'    => 'Application\Controller\Index',
+                        'action'        => 'about'
+                    ]
+                ]
+            ],
 //            'maintenance' => [
 //                'type'      => 'Zend\Mvc\Router\Http\Literal',
 //                'options'   => [

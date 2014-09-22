@@ -27,17 +27,24 @@
 return [
     'navigation' => [
         'default' => [
-            // HOME page
             [
                 'label' => 'Home',
                 'route' => 'home',
-                'active' => true
+                'icon' => 'glyphicon glyphicon-home'
             ],
             // About page
-            // [
-            //     'label' => 'About',
-            //     'route' => 'about'
-            // ]
+            [
+                'label' => 'About',
+                'route' => 'about',
+                'icon' => 'glyphicon glyphicon-info-sign',
+                'data-toggle' => "dropdown",
+                'pages' => array(
+                     array(
+                         'label' => 'Company',
+                         'route' => 'about'
+                     ),
+                 ),
+            ]
         ]
     ]
 ];
