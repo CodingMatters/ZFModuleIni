@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2014, contributors of Coding Matters.
+ * Copyright (c) 2016, Coding Matters, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,26 +24,30 @@
  * THE SOFTWARE.
  */
 
+namespace Application;
+
+use Zend\Router\Http\Literal;
+
 return [
     'console'   => [], //routing configuration for CLI modules
     'router'    => [
         'routes' => [
             'home' => [
-                'type'      => 'Zend\Mvc\Router\Http\Literal',
+                'type'      => Literal::class,
                 'options'   => [
                     'route'     => '/',
                     'defaults'  => [
-                        'controller'    => 'Application\Controller\Index',
+                        'controller'    => Controller\IndexController::class,
                         'action'        => 'index'
                     ]
                 ]
             ],
             'about' => [
-                'type'      => 'Zend\Mvc\Router\Http\Literal',
+                'type'      => Literal::class,
                 'options'   => [
                     'route'     => '/about',
                     'defaults'  => [
-                        'controller'    => 'Application\Controller\Index',
+                        'controller'    => Controller\IndexController::class,
                         'action'        => 'about'
                     ]
                 ]

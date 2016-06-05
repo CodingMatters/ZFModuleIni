@@ -24,24 +24,27 @@
  * THE SOFTWARE.
  */
 
+namespace Application;
+
+use Zend\Navigation;
+use Zend\Cache;
+use Zend\Log;
+
 return [
     'abstract_factories' => [
-        'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
-        'Zend\Log\LoggerAbstractServiceFactory',
+        Navigation\Service\NavigationAbstractServiceFactory::class,
+        Cache\Service\StorageCacheAbstractServiceFactory::class,
+        Log\LoggerAbstractServiceFactory::class,
     ],
     
     'aliases' => [
-        'translator' => 'MvcTranslator',
+//        'translator' => 'MvcTranslator',
     ],
     
     'factories' => [
-        'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
-        'myapp_module_options' => 'Application\Factory\ModuleOptionsFactory'
-    ],
-    
-    'invokables' => [
-        
-    ],
+        'navigation' => Navigation\Service\DefaultNavigationFactory::class,
+        'myapp_module_options' => Factory\ModuleOptionsFactory::class
+    ],    
     
     'services' => [
         
