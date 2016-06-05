@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2016, Coding Matters, Inc.
+ * Copyright (c) 2016 Coding Matters, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,12 +24,36 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
+namespace ApplicationTest;
 
-use Zend\ServiceManager\Factory\InvokableFactory;
+use Application\Module;
 
-return [
-   'factories' => [
-       Controller\IndexController::class   => InvokableFactory::class,
-   ]
-];
+class ModuleTest extends \PHPUnit_Framework_TestCase
+{
+    protected $config;
+
+    public function setUp()
+    {
+        $module = new Module();
+        $this->config = $module->getConfig();        
+    }
+
+    /**
+     * @test
+     * @dataProvider configKeys
+     */
+    public function moduleHasFollowingConfig($key)
+    {
+        $this->assertArrayHasKey($key, $this->config);
+    }
+
+    public function configKeys()
+    {
+        return [
+            'dependencies'          => ['dependencies'],
+            'templates'             => ['templates'],
+            'middleware_pipeline'   => ['middleware_pipeline'],
+            'routes'                => ['routes']
+        ];
+    }
+}

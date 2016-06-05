@@ -24,27 +24,32 @@
  * THE SOFTWARE.
  */
 
+use Zend\Navigation;
+use Application\Factory;
+use Zend\Cache;
+use Zend\Log;
+
 return [
-    'navigation' => [
-        'default' => [
-            [
-                'label' => 'Home',
-                'route' => 'home',
-                'icon' => 'glyphicon glyphicon-home'
-            ],
-            // About page
-            [
-                'label' => 'About',
-                'route' => 'about',
-                'icon' => 'glyphicon glyphicon-info-sign',
-                'data-toggle' => "dropdown",
-                'pages' => [
-                     [
-                         'label' => 'Company',
-                         'route' => 'about'
-                     ],
-                 ],
-            ]
-        ]
+    'abstract_factories' => [
+        Navigation\Service\NavigationAbstractServiceFactory::class,
+        Cache\Service\StorageCacheAbstractServiceFactory::class,
+        Log\LoggerAbstractServiceFactory::class,
+    ],
+
+    'aliases' => [
+//        'translator' => 'MvcTranslator',
+    ],
+
+    'factories' => [
+        'navigation' => Navigation\Service\DefaultNavigationFactory::class,
+        'myapp_module_options' => Factory\ModuleOptionsFactory::class
+    ],
+
+    'services' => [
+
+    ],
+
+    'shared' => [
+
     ]
 ];

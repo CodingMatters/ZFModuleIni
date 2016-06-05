@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2014, contributors of Coding Matters.
+ * Copyright (c) 2016, Coding Matters, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,33 +24,11 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
-
-use Zend\Navigation;
-use Zend\Cache;
-use Zend\Log;
+use Zend\ServiceManager\Factory\InvokableFactory;
+use Application\Controller;
 
 return [
-    'abstract_factories' => [
-        Navigation\Service\NavigationAbstractServiceFactory::class,
-        Cache\Service\StorageCacheAbstractServiceFactory::class,
-        Log\LoggerAbstractServiceFactory::class,
-    ],
-
-    'aliases' => [
-//        'translator' => 'MvcTranslator',
-    ],
-
-    'factories' => [
-        'navigation' => Navigation\Service\DefaultNavigationFactory::class,
-        'myapp_module_options' => Factory\ModuleOptionsFactory::class
-    ],
-
-    'services' => [
-
-    ],
-
-    'shared' => [
-
-    ]
+   'factories' => [
+       Controller\IndexController::class   => InvokableFactory::class,
+   ]
 ];
