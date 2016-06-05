@@ -6,6 +6,7 @@ $configFiles = [
     require __DIR__ . '/autoload/middleware.config.php',
     require __DIR__ . '/autoload/dependencies.config.php',
     require __DIR__ . '/autoload/middleware-routes.config.php',
+    require __DIR__ . '/autoload/routes.config.php',
     require __DIR__ . '/autoload/navigator.config.php',
     require __DIR__ . '/autoload/templates.config.php',
     require __DIR__ . '/autoload/translator.config.php', // optional
