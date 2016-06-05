@@ -26,8 +26,8 @@
 
 namespace Application\Factory;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
+use Interop\Container\ContainerInterface;
 use Application\Options\ModuleOptions;
 
 /**
@@ -39,9 +39,9 @@ class ModuleOptionsFactory implements FactoryInterface
 {
     protected $options = [];
     
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $config = $serviceLocator->get('Config')['myapp'];
+        $config = $container->get('Config')['myapp'];
         
         if (isset($config) && !empty($config)) {
             $this->options = $config;
