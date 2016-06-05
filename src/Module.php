@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2014, contributors of Coding Matters.
+ * Copyright (c) 2016 Coding Matters, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,75 +26,66 @@
 
 namespace Application;
 
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
-use Zend\ModuleManager\ModuleManager;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ControllerProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\RouteProviderInterface;
+use Zend\Mvc\ModuleRouteListener;
+use Zend\Mvc\MvcEvent;
 
-/**
- * Application\Module
- *
- * @package Application
- */
 class Module implements
     AutoloaderProviderInterface,
     ServiceProviderInterface,
     ConfigProviderInterface,
-    ControllerProviderInterface
+    ControllerProviderInterface,
+    RouteProviderInterface
 {
-
     public function onBootstrap(MvcEvent $event)
     {
-        $application = $event->getApplication();
+        $app = $event->getApplication();
         $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($application->getEventManager());
+        $moduleRouteListener->attach($app->getEventManager());
 
-        $seviceManager = $application->getServiceManager();
-        $applicationVariables = $seviceManager->get('myapp_module_options');
-
-        $myapp = $applicationVariables->toArray();
+        $seviceManager = $app->getServiceManager();
+        $variables = $seviceManager->get('myapp_module_options');
 
         $viewModel = $event->getViewModel();
-        $viewModel->setVariables($myapp);
-    }
-
-    public function getConfig()
-    {
-        $config      = [];
-        $configFiles = [
-            'module.config.php',
-            'routes.config.php',
-            'navigation.config.php'
-        ];
-
-        foreach ($configFiles as $configFile) {
-            $config = \Zend\Stdlib\ArrayUtils::merge($config, include  __DIR__ .'/config/'. $configFile);
-        }
-
-        return $config;
+        $viewModel->setVariables($variables->toArray());
     }
 
     public function getAutoloaderConfig()
     {
         return [
-            'Zend\Loader\StandardAutoloader' => [
+            \Zend\Loader\StandardAutoloader::class => [
                 'namespaces' => [
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__ . '/src/',
                 ]
             ]
         ];
     }
 
+    /**
+     * Return default configuration for zend-mvc applications.
+     */
+    public function getConfig()
+    {
+        $provider = new ConfigProvider();
+        return $provider->getDependencyConfig();
+    }
+
     public function getControllerConfig()
     {
-        return include __DIR__ . '/config/controllers.config.php';
+        return include __DIR__ . '/../config/autoload/controllers.config.php';
     }
 
     public function getServiceConfig()
     {
-        return include __DIR__ . '/config/services.config.php';
+        return include __DIR__ . '/../config/autoload/services.config.php';
+    }
+
+    public function getRouteConfig()
+    {
+        return include __DIR__ . '/../config/autoload/routes.config.php';
     }
 }

@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2014, contributors of Coding Matters.
+ * Copyright (c) 2016 Coding Matters, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,27 +24,37 @@
  * THE SOFTWARE.
  */
 
-return [
-    'navigation' => [
-        'default' => [
-            [
-                'label' => 'Home',
-                'route' => 'home',
-                'icon' => 'glyphicon glyphicon-home'
-            ],
-            // About page
-            [
-                'label' => 'About',
-                'route' => 'about',
-                'icon' => 'glyphicon glyphicon-info-sign',
-                'data-toggle' => "dropdown",
-                'pages' => [
-                     [
-                         'label' => 'Company',
-                         'route' => 'about'
-                     ],
-                 ],
-            ]
-        ]
-    ]
-];
+namespace ApplicationTest;
+
+use Application\Module;
+
+class ModuleTest extends \PHPUnit_Framework_TestCase
+{
+    protected $config;
+
+    public function setUp()
+    {
+        $module = new Module();
+        $this->config = $module->getConfig();        
+    }
+
+    /**
+     * @test
+     * @dataProvider configKeys
+     */
+    public function moduleHasFollowingConfig($key)
+    {
+        $this->assertArrayHasKey($key, $this->config);
+    }
+
+    public function configKeys()
+    {
+        return [
+            'dependencies'          => ['dependencies'],
+            'templates'             => ['templates'],
+            'view_manager'          => ['view_manager'],
+            'middleware_pipeline'   => ['middleware_pipeline'],
+            'routes'                => ['routes']
+        ];
+    }
+}

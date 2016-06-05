@@ -24,9 +24,8 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
-
 use Zend\Router\Http\Literal;
+use Application\Controller;
 
 return [
     'console'   => [], //routing configuration for CLI modules

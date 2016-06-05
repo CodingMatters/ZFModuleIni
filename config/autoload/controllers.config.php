@@ -24,9 +24,8 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
-
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Application\Controller;
 
 return [
    'factories' => [

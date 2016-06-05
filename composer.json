@@ -2,11 +2,10 @@
     "name": "codingmatters/zf-module-ini",
     "description": "Initial Module for ZF application",
     "license": "MIT",
-    "type": "module",
+    "type": "project",
     "keywords": [
         "application",
-        "module",
-        "zf2"
+        "ZF module"
     ],
     "homepage": "https://github.com/CodingMatters/ZFModuleIni/",
     "authors": [
@@ -17,12 +16,52 @@
         }
     ],
     "require": {
-        "php": ">=5.4",        
+        "php": "^5.6 || ^7.0",
+        "roave/security-advisories": "dev-master",        
         "evandotpro/edp-module-layouts": "dev-master",
-        "zendframework/zendframework": "2.3.*"
+        "zendframework/zend-mvc": "^3.0",
+        "zendframework/zend-navigation": "^3.0 || ^2.7",
+        "codingmatters/kernel": "^1.0 || ^0.1"
     },
     "require-dev": {        
-        "phpunit/phpunit": "4.*",
-        "phpunit/php-invoker": "1.*"
+        "zendframework/zend-test": "^3.0",
+        "squizlabs/php_codesniffer": "^2.3",
+        "phpbench/phpbench": "^0.11",
+        "filp/whoops": "^2.0"
+    },
+    "autoload": {        
+        "psr-4": {
+            "Application\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ApplicationTest\\": "test/"
+        }
+    },
+    "extra": {        
+        "branch-alias": {
+            "dev-master": "1.0-dev",
+            "dev-develop": "2.0-dev"
+        },
+        "zf": {
+            "module": "Application",
+            "config-provider": "Application\\ConfigProvider"
+        }
+    },
+    "scripts": {
+        "post-install-cmd"  : [            
+            "@check"
+        ],
+        "post-update-cmd"   : [            
+            "@check"
+        ],
+        "check": [
+            "@test",
+            "@cs"            
+        ],
+        "cs": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit"
     }
 }
