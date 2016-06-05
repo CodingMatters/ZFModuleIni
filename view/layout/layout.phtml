@@ -35,22 +35,22 @@
         ?>
 
         <!-- Le styles -->
-        <?php echo $this->headLink(['rel' => 'shortcut icon', 'href' => $this->basePath() . '/img/favicon.ico'])
-                        ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/sb-admin.css')
-                        ->prependStylesheet($this->basePath() . '/css/plugins/morris.css')
-                        ->prependStylesheet($this->basePath() . '/css/plugins/font-awesome-4.1.0/css/font-awesome.min.css')
+        <?php echo $this->headLink(['rel' => 'shortcut icon', 'href' => $this->basePath() . '/assets/application/img/favicon.ico'])
+                        ->prependStylesheet($this->basePath() . '/assets/application/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/assets/bootstrap/css/bootstrap-theme.min.css')
+                        ->prependStylesheet($this->basePath() . '/assets/bootstrap/css/bootstrap.min.css')
+                        ->prependStylesheet($this->basePath() . '/assets/application/css/sb-admin.css')
+                        ->prependStylesheet($this->basePath() . '/assets/application/css/plugins/morris.css')
+                        ->prependStylesheet($this->basePath() . '/assets/font-awesome/css/font-awesome.min.css')
                     ;
         ?>
         
         <!-- Scripts -->
         <?php echo $this->headScript()
-            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            ->prependFile($this->basePath() . '/js/jquery.min.js')
-            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',));
+            ->prependFile($this->basePath() . '/assets/bootstrap/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/assets/jquery/jquery.min.js')
+            ->prependFile($this->basePath() . '/assets/application/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/assets/application/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',));
         ?>
     </head>
     <body>

@@ -38,12 +38,12 @@ return [
                 'route' => 'about',
                 'icon' => 'glyphicon glyphicon-info-sign',
                 'data-toggle' => "dropdown",
-                'pages' => array(
-                     array(
+                'pages' => [
+                     [
                          'label' => 'Company',
                          'route' => 'about'
-                     ),
-                 ),
+                     ],
+                 ],
             ]
         ]
     ]

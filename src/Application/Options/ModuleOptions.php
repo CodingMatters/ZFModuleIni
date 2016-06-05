@@ -36,11 +36,11 @@ use Zend\Stdlib\AbstractOptions;
 class ModuleOptions extends AbstractOptions
 {
     protected $__strictMode__ = false;
-    
+
     protected $applicationName = 'MyApp';
-    
+
     protected $organization = 'MyCompany';
-    
+
     protected $copyrightYear;
 
 
@@ -49,30 +49,30 @@ class ModuleOptions extends AbstractOptions
         $this->applicationName = $applicationName;
         return $this;
     }
-    
+
     public function getApplicationName()
     {
         return $this->applicationName;
     }
-    
+
     public function setOrganization($organization)
     {
         $this->organization = $organization;
         return $this;
     }
-    
+
     public function getOrganization()
     {
         return $this->organization;
     }
-    
+
     public function setCopyrightYear($copyrightYear = null)
     {
         $year = date('Y');
         $this->copyrightYear = ($copyrightYear !== $year) ? $copyrightYear . '-' . $year : $year;
         return $this;
     }
-    
+
     public function getCopyrightYear()
     {
         return $this->copyrightYear;

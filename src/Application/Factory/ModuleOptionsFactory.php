@@ -38,15 +38,15 @@ use Application\Options\ModuleOptions;
 class ModuleOptionsFactory implements FactoryInterface
 {
     protected $options = [];
-    
+
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $config = $container->get('Config')['myapp'];
-        
+
         if (isset($config) && !empty($config)) {
             $this->options = $config;
         }
-        
+
         return new ModuleOptions($this->options);
     }
 }
