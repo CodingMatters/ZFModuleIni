@@ -36,21 +36,21 @@ return [
         Cache\Service\StorageCacheAbstractServiceFactory::class,
         Log\LoggerAbstractServiceFactory::class,
     ],
-    
+
     'aliases' => [
 //        'translator' => 'MvcTranslator',
     ],
-    
+
     'factories' => [
         'navigation' => Navigation\Service\DefaultNavigationFactory::class,
         'myapp_module_options' => Factory\ModuleOptionsFactory::class
-    ],    
-    
-    'services' => [
-        
     ],
-    
+
+    'services' => [
+
+    ],
+
     'shared' => [
-        
+
     ]
 ];

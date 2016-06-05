@@ -39,27 +39,28 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
  *
  * @package Application
  */
-class Module implements 
+class Module implements
     AutoloaderProviderInterface,
-    ServiceProviderInterface,    
+    ServiceProviderInterface,
     ConfigProviderInterface,
     ControllerProviderInterface
-{    
+{
+
     public function onBootstrap(MvcEvent $event)
     {
-        $application = $event->getApplication();        
+        $application = $event->getApplication();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($application->getEventManager());
-        
+
         $seviceManager = $application->getServiceManager();
         $applicationVariables = $seviceManager->get('myapp_module_options');
-        
+
         $myapp = $applicationVariables->toArray();
-        
+
         $viewModel = $event->getViewModel();
         $viewModel->setVariables($myapp);
     }
-    
+
     public function getConfig()
     {
         $config      = [];
@@ -68,7 +69,7 @@ class Module implements
             'routes.config.php',
             'navigation.config.php'
         ];
-        
+
         foreach ($configFiles as $configFile) {
             $config = \Zend\Stdlib\ArrayUtils::merge($config, include  __DIR__ .'/config/'. $configFile);
         }
@@ -86,12 +87,14 @@ class Module implements
             ]
         ];
     }
-    
-    public function getControllerConfig() {
+
+    public function getControllerConfig()
+    {
         return include __DIR__ . '/config/controllers.config.php';
     }
-    
-    public function getServiceConfig() {
+
+    public function getServiceConfig()
+    {
         return include __DIR__ . '/config/services.config.php';
     }
 }
