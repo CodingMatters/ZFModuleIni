@@ -9,14 +9,20 @@ return [
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => [
-            'layout/layout'           => __DIR__ . '/../../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../../view/application/index/index.phtml',
-            'error/404'               => __DIR__ . '/../../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../../view/error/index.phtml',
+            'layout/layout'             => __DIR__ . '/../../view/layout/layout.phtml',
+            'template/footer'           => __DIR__ . '/../../view/layout/partial/footer.phtml',
+            'template/navigation'       => __DIR__ . '/../../view/layout/partial/navigation.phtml',
+            'template/breadcrumbs'      => __DIR__ . '/../../view/layout/partial/breadcrumbs.phtml',
+            'application/index/index'   => __DIR__ . '/../../view/application/index/index.phtml',
+            'error/404'                 => __DIR__ . '/../../view/error/404.phtml',
+            'error/index'               => __DIR__ . '/../../view/error/index.phtml',
         ],
         'template_path_stack' => [
             "application" => __DIR__ . '/../../view',
         ],
+    ],
+    'module_layouts' => [
+        'Application' => 'layout/layout'
     ],
     
     // Zend Expressive Configuration
