@@ -52,6 +52,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         return [
             'dependencies'          => ['dependencies'],
             'templates'             => ['templates'],
+            'view_manager'          => ['view_manager'],
             'middleware_pipeline'   => ['middleware_pipeline'],
             'routes'                => ['routes']
         ];
