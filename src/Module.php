@@ -43,11 +43,11 @@ class Module implements
 {
     public function onBootstrap(MvcEvent $event)
     {
-        $application = $event->getApplication();
+        $app = $event->getApplication();
         $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($application->getEventManager());
+        $moduleRouteListener->attach($app->getEventManager());
 
-        $seviceManager = $application->getServiceManager();
+        $seviceManager = $app->getServiceManager();
         $variables = $seviceManager->get('myapp_module_options');
 
         $viewModel = $event->getViewModel();
@@ -57,9 +57,9 @@ class Module implements
     public function getAutoloaderConfig()
     {
         return [
-            'Zend\Loader\StandardAutoloader' => [
+            \Zend\Loader\StandardAutoloader::class => [
                 'namespaces' => [
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__ . '/src/',
                 ]
             ]
         ];
@@ -86,7 +86,6 @@ class Module implements
 
     public function getRouteConfig()
     {
-        return include __DIR__ . '/config/autoload/routes.config.php';
-        ;
+        return include __DIR__ . '/../config/autoload/routes.config.php';
     }
 }

@@ -24,9 +24,8 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
-
 use Zend\Navigation;
+use Application\Factory;
 use Zend\Cache;
 use Zend\Log;
 

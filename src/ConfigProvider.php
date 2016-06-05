@@ -29,7 +29,6 @@ namespace Application;
 
 class ConfigProvider
 {
-
     /**
      * Return configuration for this component.
      *
