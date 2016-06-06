@@ -10,13 +10,10 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use Application\Factory;
 
 return [
-    'factories'          => [
-        "Application\Options\ModuleOptions"     => Factory\ModuleOptionsFactory::class,
-
-    ],
-    'services'           => [],
-    'abstract_factories' => [],
-    'delegators'         => [],
-    'shared'             => [],
-    'shared_by_default'  => true
+    'factories'             => [],
+    'services'              => [],
+    'abstract_factories'    => [],
+    'delegators'            => [],
+    'shared'                => [],
+    'shared_by_default'     => true
 ];
