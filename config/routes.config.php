@@ -10,24 +10,14 @@ use Zend\Router\Http\Literal;
 use Application\Controller;
 
 return [
-    'home' => [
+    'application' => [
         'type'      => Literal::class,
         'options'   => [
-            'route'     => '/',
+            'route'     => '/application',
             'defaults'  => [
                 'controller'    => Controller\IndexController::class,
                 'action'        => 'index'
             ]
         ]
-    ],
-    'about' => [
-        'type'      => Literal::class,
-        'options'   => [
-            'route'     => '/about',
-            'defaults'  => [
-                'controller'    => Controller\IndexController::class,
-                'action'        => 'about'
-            ]
-        ]
-    ]
+    ]    
 ];
