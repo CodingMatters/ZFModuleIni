@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace Site;
+namespace Application;
 
-use Site\Options\ModuleOptions;
+use Application\Options\ModuleOptions;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 

@@ -7,7 +7,7 @@
  */
 
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Site\Controller;
+use Application\Controller;
 
 return [
     'factories' => [

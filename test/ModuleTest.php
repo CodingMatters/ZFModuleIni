@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace SiteTest;
+namespace ApplicationTest;
 
-use Site\Module;
+use Application\Module;
 
 class ModuleTest extends \PHPUnit_Framework_TestCase
 {
