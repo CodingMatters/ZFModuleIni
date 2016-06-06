@@ -1,23 +1,20 @@
 {
     "name": "codingmatters/zf-module-ini",
-    "description": "Initial Module for ZF application",
+    "description": "Skeleton module for ZF application",
     "license": "MIT",
     "type": "project",
-    "keywords": [
-        "application",
-        "ZF module"
-    ],
+    "keywords": ["ZF module"],
     "homepage": "https://github.com/CodingMatters/ZFModuleIni/",
     "authors": [
         {
             "name": "Gab Amba",
             "email": "gamba@gabbydgab.com",
-            "homepage": "http://www.gabbydgab.com/"            
+            "homepage": "http://www.gabbydgab.com/"  
         }
     ],
     "require": {
         "php": "^5.6 || ^7.0",
-        "roave/security-advisories": "dev-master",        
+        "roave/security-advisories": "dev-master", 
         "evandotpro/edp-module-layouts": "dev-master",
         "zendframework/zend-mvc": "^3.0",
         "zendframework/zend-navigation": "^3.0 || ^2.7",
@@ -31,22 +28,18 @@
     },
     "autoload": {        
         "psr-4": {
-            "Application\\": "src/"
+            "Site\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ApplicationTest\\": "test/"
+            "SiteTest\\": "test/"
         }
     },
     "extra": {        
-        "branch-alias": {
-            "dev-master": "1.0-dev",
-            "dev-develop": "2.0-dev"
-        },
         "zf": {
-            "module": "Application",
-            "config-provider": "Application\\ConfigProvider"
+            "module": "Site",
+            "config-provider": "Site\\ConfigProvider"
         }
     },
     "scripts": {
@@ -58,7 +51,7 @@
         ],
         "check": [
             "@test",
-            "@cs"            
+            "@cs" 
         ],
         "cs": "phpcs",
         "cs-fix": "phpcbf",
