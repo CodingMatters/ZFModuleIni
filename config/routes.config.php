@@ -8,21 +8,21 @@
  * @see https://zendframework.github.io/zend-router/routing/
  * 
  * <code>
-use Zend\Router\Http\Literal;
-use Application\Controller;
-
-return [
-    'application' => [
-        'type'      => Literal::class,
-        'options'   => [
-            'route'     => '/application',
-            'defaults'  => [
-                'controller'    => Controller\IndexController::class,
-                'action'        => 'index'
-            ]
-        ]
-    ]    
-];
+ * use Zend\Router\Http\Literal;
+ * use Application\Controller;
+ * 
+ * return [
+ *      'application' => [
+ *          'type'      => Literal::class,
+ *          'options'   => [
+ *                'route'     => '/application',
+ *                'defaults'  => [
+ *                     'controller'    => Controller\IndexController::class,
+ *                     'action'        => 'index'
+ *                ]
+ *          ]
+ *   ]    
+ * ];
  * </code>
  */
 
