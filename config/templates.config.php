@@ -9,7 +9,7 @@ return [
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => [
-            'layout/layout'             => __DIR__ . '/../view/layout/layout.phtml',
+            'application/layout'        => __DIR__ . '/../view/layout/layout.phtml',
             'template/footer'           => __DIR__ . '/../view/layout/partial/footer.phtml',
             'template/navigation'       => __DIR__ . '/../view/layout/partial/navigation.phtml',
             'template/breadcrumbs'      => __DIR__ . '/../view/layout/partial/breadcrumbs.phtml',
@@ -18,7 +18,7 @@ return [
             'error/index'               => __DIR__ . '/../view/error/index.phtml',
         ],
         'template_path_stack' => [
-            'site' => __DIR__ . '/../view',
+            'application' => __DIR__ . '/../view',
         ],
     ],
 
@@ -31,7 +31,7 @@ return [
         'exception_template'        => 'error/index',
         'layout'                    => "layout/layout",
         'map'       => [
-            'layout/layout'             => __DIR__ . '/../view/layout/layout.phtml',
+            'application/layout'        => __DIR__ . '/../view/layout/layout.phtml',
             'template/footer'           => __DIR__ . '/../view/layout/partial/footer.phtml',
             'template/navigation'       => __DIR__ . '/../view/layout/partial/navigation.phtml',
             'template/breadcrumbs'      => __DIR__ . '/../view/layout/partial/breadcrumbs.phtml',
@@ -40,7 +40,7 @@ return [
             'error/index'               => __DIR__ . '/../view/error/index.phtml',
         ],
         'paths'     => [
-            'site'  => [__DIR__ . '/../view/page']
+            'application'  => [__DIR__ . '/../view/page']
         ]
     ],
 

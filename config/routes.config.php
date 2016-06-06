@@ -7,7 +7,7 @@
  */
 
 use Zend\Router\Http\Literal;
-use Site\Controller;
+use Application\Controller;
 
 return [
     'home' => [

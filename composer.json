@@ -9,7 +9,7 @@
         {
             "name": "Gab Amba",
             "email": "gamba@gabbydgab.com",
-            "homepage": "http://www.gabbydgab.com/"  
+            "homepage": "http://www.gabbydgab.com/"
         }
     ],
     "require": {
@@ -28,18 +28,18 @@
     },
     "autoload": {        
         "psr-4": {
-            "Site\\": "src/"
+            "Application\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SiteTest\\": "test/"
+            "ApplicationTest\\": "test/"
         }
     },
     "extra": {        
         "zf": {
-            "module": "Site",
-            "config-provider": "Site\\ConfigProvider"
+            "module": "Application",
+            "config-provider": "Application\\ConfigProvider"
         }
     },
     "scripts": {

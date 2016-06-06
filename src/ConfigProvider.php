@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace Site;
+namespace Application;
 
 class ConfigProvider
 {
