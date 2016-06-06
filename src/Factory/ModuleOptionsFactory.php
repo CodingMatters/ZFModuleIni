@@ -24,11 +24,11 @@
  * THE SOFTWARE.
  */
 
-namespace Application\Factory;
+namespace Site\Factory;
 
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
-use Application\Options\ModuleOptions;
+use Site\Options\ModuleOptions;
 
 /**
  * Application\Factory\ModuleOptionsFactory

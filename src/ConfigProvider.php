@@ -3,8 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright 2016 Coding Matters, Inc.
- * Author  Gab Amba <gamba@gabbydgab.com>
+ * Copyright (c) 2016 Coding Matters, Inc. (Gab Amba <gamba@gabbydgab.com>)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
+namespace Site;
 
 class ConfigProvider
 {
@@ -36,8 +35,18 @@ class ConfigProvider
      */
     public function __invoke()
     {
-        return $this->getDependencyConfig();
+        return [
+            "middleware_pipeline"   => $this->getMiddlewareConfig(),
+            "dependencies"          => $this->getDependencyConfig(),
+            "controllers"           => $this->getControllerConfig(),
+            "controller_plugins"    => $this->getControllerPluginConfig(),
+            "navigation"            => $this->getNavigationConfig(),
+            "routes"                => $this->getRouteConfig(),
+            $this->getTemplateConfig(),
+            $this->getGlobConfig()
+        ];
     }
+
     /**
      * Return dependency mappings for this component.
      *
@@ -45,6 +54,41 @@ class ConfigProvider
      */
     public function getDependencyConfig()
     {
-        return include __DIR__ . '/../config/module.config.php';
+        return include __DIR__ . "/../config/dependencies.config.php";
+    }
+
+    public function getTemplateConfig()
+    {
+        return include __DIR__ . "/../config/templates.config.php";
+    }
+
+    public function getRouteConfig()
+    {
+        return include __DIR__ . "/../config/routes.config.php";
+    }
+
+    public function getMiddlewareConfig()
+    {
+        return include __DIR__ . "/../config/middleware.config.php";
+    }
+
+    public function getNavigationConfig()
+    {
+        return include __DIR__ . "/../config/navigation.config.php";
+    }
+
+    public function getGlobConfig()
+    {
+        return include __DIR__ . "/../config/glob.config.php";
+    }
+
+    public function getControllerConfig()
+    {
+        return include __DIR__ . "/../config/controllers.config.php";
+    }
+
+    public function getControllerPluginConfig()
+    {
+        return include __DIR__ . "/../config/controller-plugins.config.php";
     }
 }

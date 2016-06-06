@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2016 Coding Matters, Inc.
+ * Copyright (c) 2016 Coding Matters, Inc. (Gab Amba <gamba@gabbydgab.com>)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,16 @@
  * THE SOFTWARE.
  */
 
-namespace Application;
+namespace Site;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\ControllerProviderInterface;
-use Zend\ModuleManager\Feature\ServiceProviderInterface;
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\ModuleManager\Feature\RouteProviderInterface;
+use Site\Options\ModuleOptions;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module implements
-    AutoloaderProviderInterface,
-    ServiceProviderInterface,
-    ConfigProviderInterface,
-    ControllerProviderInterface,
-    RouteProviderInterface
+class Module
 {
+    private $config = [];
+
     public function onBootstrap(MvcEvent $event)
     {
         $app = $event->getApplication();
@@ -48,21 +41,10 @@ class Module implements
         $moduleRouteListener->attach($app->getEventManager());
 
         $seviceManager = $app->getServiceManager();
-        $variables = $seviceManager->get('myapp_module_options');
+        $variables = $seviceManager->get("Application\Options\ModuleOptions");
 
         $viewModel = $event->getViewModel();
         $viewModel->setVariables($variables->toArray());
-    }
-
-    public function getAutoloaderConfig()
-    {
-        return [
-            \Zend\Loader\StandardAutoloader::class => [
-                'namespaces' => [
-                    __NAMESPACE__ => __DIR__ . '/src/',
-                ]
-            ]
-        ];
     }
 
     /**
@@ -71,21 +53,16 @@ class Module implements
     public function getConfig()
     {
         $provider = new ConfigProvider();
-        return $provider->getDependencyConfig();
-    }
 
-    public function getControllerConfig()
-    {
-        return include __DIR__ . '/../config/autoload/controllers.config.php';
-    }
+        $this->config = $provider->getTemplateConfig();
+        $this->config['middleware_pipeline']    = $provider->getMiddlewareConfig();
+        $this->config['service_manager']        = $provider->getDependencyConfig();
+        $this->config['router']['routes']       = $provider->getRouteConfig();
+        $this->config['navigation']             = $provider->getNavigationConfig();
+        $this->config['controllers']            = $provider->getControllerConfig();
+        $this->config['controller_plugins']     = $provider->getControllerPluginConfig();
 
-    public function getServiceConfig()
-    {
-        return include __DIR__ . '/../config/autoload/services.config.php';
-    }
-
-    public function getRouteConfig()
-    {
-        return include __DIR__ . '/../config/autoload/routes.config.php';
+        // Overrides the default config to use Glob module config
+        return array_merge_recursive($this->config, $provider->getGlobConfig());
     }
 }

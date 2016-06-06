@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace Application\Options;
+namespace Site\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
@@ -47,7 +47,6 @@ class ModuleOptions extends AbstractOptions
     public function setApplicationName($applicationName)
     {
         $this->applicationName = $applicationName;
-        return $this;
     }
 
     public function getApplicationName()
@@ -58,7 +57,6 @@ class ModuleOptions extends AbstractOptions
     public function setOrganization($organization)
     {
         $this->organization = $organization;
-        return $this;
     }
 
     public function getOrganization()
@@ -70,7 +68,6 @@ class ModuleOptions extends AbstractOptions
     {
         $year = date('Y');
         $this->copyrightYear = ($copyrightYear !== $year) ? $copyrightYear . '-' . $year : $year;
-        return $this;
     }
 
     public function getCopyrightYear()

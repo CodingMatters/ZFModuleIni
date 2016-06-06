@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2016, Coding Matters, Inc.
+ * Copyright (c) 2014, contributors of Coding Matters.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,20 @@
  * THE SOFTWARE.
  */
 
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Application\Controller;
+$settings = [
+    /**
+     * Application Name
+     */
+    //'application_name' => 'MyApp',
+
+    /**
+     *
+     */
+    //'organization' => 'Object Coding Technologies, Inc.',
+
+    'copyright_year' => "2012",
+];
 
 return [
-   'factories' => [
-       Controller\IndexController::class   => InvokableFactory::class,
-   ]
+    'myapp' => $settings
 ];
