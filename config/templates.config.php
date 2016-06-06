@@ -21,7 +21,7 @@ return [
             'site' => __DIR__ . '/../view',
         ],
     ],
-    
+
     // Zend Expressive Configuration
     'templates'     => [
         'display_not_found_reason'  => true,
@@ -35,15 +35,15 @@ return [
             'template/footer'           => __DIR__ . '/../view/layout/partial/footer.phtml',
             'template/navigation'       => __DIR__ . '/../view/layout/partial/navigation.phtml',
             'template/breadcrumbs'      => __DIR__ . '/../view/layout/partial/breadcrumbs.phtml',
-            'site/index/index'   => __DIR__ . '/../view/site/index/index.phtml',
+            'site/index/index'          => __DIR__ . '/../view/site/index/index.phtml',
             'error/404'                 => __DIR__ . '/../view/error/404.phtml',
             'error/index'               => __DIR__ . '/../view/error/index.phtml',
         ],
         'paths'     => [
-            'application'  => [__DIR__ . '/../view/page']
+            'site'  => [__DIR__ . '/../view/page']
         ]
     ],
-    
+
     /**
      * Zend View Helpers
      */

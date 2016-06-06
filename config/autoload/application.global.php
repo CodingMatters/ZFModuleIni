@@ -29,12 +29,12 @@ $settings = [
      * Application Name
      */
     //'application_name' => 'MyApp',
-    
+
     /**
-     * 
-     */    
+     *
+     */
     //'organization' => 'Object Coding Technologies, Inc.',
-    
+
     'copyright_year' => "2012",
 ];
 
