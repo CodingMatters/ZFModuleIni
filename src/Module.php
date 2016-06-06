@@ -30,19 +30,19 @@ use Site\Options\ModuleOptions;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module 
+class Module
 {
     private $config = [];
-    
+
     public function onBootstrap(MvcEvent $event)
     {
         $app = $event->getApplication();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($app->getEventManager());
-        
+
         $seviceManager = $app->getServiceManager();
         $variables = $seviceManager->get("Application\Options\ModuleOptions");
-        
+
         $viewModel = $event->getViewModel();
         $viewModel->setVariables($variables->toArray());
     }
@@ -53,7 +53,7 @@ class Module
     public function getConfig()
     {
         $provider = new ConfigProvider();
-        
+
         $this->config = $provider->getTemplateConfig();
         $this->config['middleware_pipeline']    = $provider->getMiddlewareConfig();
         $this->config['service_manager']        = $provider->getDependencyConfig();
@@ -61,7 +61,7 @@ class Module
         $this->config['navigation']             = $provider->getNavigationConfig();
         $this->config['controllers']            = $provider->getControllerConfig();
         $this->config['controller_plugins']     = $provider->getControllerPluginConfig();
-        
+
         // Overrides the default config to use Glob module config
         return array_merge_recursive($this->config, $provider->getGlobConfig());
     }

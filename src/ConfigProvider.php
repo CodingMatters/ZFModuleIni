@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2016 Coding Matters, Inc. (Gab Amba <gamba@gabbydgab.com>)  
+ * Copyright (c) 2016 Coding Matters, Inc. (Gab Amba <gamba@gabbydgab.com>)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -46,7 +46,7 @@ class ConfigProvider
             $this->getGlobConfig()
         ];
     }
-    
+
     /**
      * Return dependency mappings for this component.
      *
@@ -56,7 +56,7 @@ class ConfigProvider
     {
         return include __DIR__ . "/../config/dependencies.config.php";
     }
-    
+
     public function getTemplateConfig()
     {
         return include __DIR__ . "/../config/templates.config.php";
@@ -66,27 +66,27 @@ class ConfigProvider
     {
         return include __DIR__ . "/../config/routes.config.php";
     }
-    
+
     public function getMiddlewareConfig()
     {
         return include __DIR__ . "/../config/middleware.config.php";
     }
-    
+
     public function getNavigationConfig()
     {
         return include __DIR__ . "/../config/navigation.config.php";
     }
-    
+
     public function getGlobConfig()
     {
         return include __DIR__ . "/../config/glob.config.php";
     }
-    
+
     public function getControllerConfig()
     {
         return include __DIR__ . "/../config/controllers.config.php";
     }
-    
+
     public function getControllerPluginConfig()
     {
         return include __DIR__ . "/../config/controller-plugins.config.php";
