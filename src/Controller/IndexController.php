@@ -38,12 +38,6 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel($this->getEvent()->getViewModel()->getVariables());
-    }
-
-
-    public function aboutAction()
-    {
-        return new ViewModel($this->getEvent()->getViewModel()->getVariables());
+        return new ViewModel();
     }
 }
