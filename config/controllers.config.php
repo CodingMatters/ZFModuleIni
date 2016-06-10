@@ -11,6 +11,6 @@ use Application\Controller;
 
 return [
     'factories' => [
-        Controller\IndexController::class       => InvokableFactory::class,
+        Controller\IndexController::class   => InvokableFactory::class,
     ]
 ];
