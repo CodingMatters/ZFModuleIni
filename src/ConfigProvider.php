@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2016 Coding Matters, Inc. (Gab Amba <gamba@gabbydgab.com>)
+ * Copyright (c) 2016, Coding Matters, Inc. (Gab Amba <gamba@gabbydgab.com>)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@ namespace Application;
 class ConfigProvider
 {
     /**
-     * Return configuration for this component.
+     * Return configuration for this module.
      *
      * @return array
      */
@@ -48,7 +48,7 @@ class ConfigProvider
     }
 
     /**
-     * Return dependency mappings for this component.
+     * Return dependencies mapping for this module.
      *
      * @return array
      */
@@ -57,36 +57,71 @@ class ConfigProvider
         return include __DIR__ . "/../config/dependencies.config.php";
     }
 
+    /**
+     * Return templates mapping for this module.
+     *
+     * @return array
+     */
     public function getTemplateConfig()
     {
         return include __DIR__ . "/../config/templates.config.php";
     }
 
+    /**
+     * Return routes mapping for this module.
+     *
+     * @return array
+     */
     public function getRouteConfig()
     {
         return include __DIR__ . "/../config/routes.config.php";
     }
 
+    /**
+     * Return middlewares mapping for this module.
+     *
+     * @return array
+     */
     public function getMiddlewareConfig()
     {
         return include __DIR__ . "/../config/middleware.config.php";
     }
 
+    /**
+     * Return navigation mapping for this module.
+     *
+     * @return array
+     */
     public function getNavigationConfig()
     {
         return include __DIR__ . "/../config/navigation.config.php";
     }
 
+    /**
+     * Return Glob configuration for this module.
+     *
+     * @return array
+     */
     public function getGlobConfig()
     {
         return include __DIR__ . "/../config/glob.config.php";
     }
 
+    /**
+     * Return controllers mapping for this module.
+     *
+     * @return array
+     */
     public function getControllerConfig()
     {
         return include __DIR__ . "/../config/controllers.config.php";
     }
 
+    /**
+     * Return controller-plugins mapping for this module.
+     *
+     * @return array
+     */
     public function getControllerPluginConfig()
     {
         return include __DIR__ . "/../config/controller-plugins.config.php";
