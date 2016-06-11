@@ -2,7 +2,7 @@
     "name": "codingmatters/zf-module-ini",
     "description": "Skeleton module for ZF application",
     "license": "MIT",
-    "type": "project",
+    "type": "zend-module",
     "keywords": ["ZF module"],
     "homepage": "https://github.com/CodingMatters/ZFModuleIni/",
     "authors": [
@@ -14,9 +14,9 @@
     ],
     "require": {
         "php": "^5.6 || ^7.0",
-        "roave/security-advisories": "dev-master", 
-        "evandotpro/edp-module-layouts": "dev-master",
-        "zendframework/zend-mvc": "^3.0"
+        "roave/security-advisories": "dev-master",
+        "composer/installers": "~1.0",        
+        "codingmatters/site-module-ini": "^1.0 || ^0.6"
     },
     "require-dev": {        
         "zendframework/zend-test": "^3.0",
@@ -24,7 +24,7 @@
         "phpbench/phpbench": "^0.11",
         "filp/whoops": "^2.0"
     },
-    "autoload": {        
+    "autoload": {
         "psr-4": {
             "Application\\": "src/"
         }
@@ -34,7 +34,8 @@
             "ApplicationTest\\": "test/"
         }
     },
-    "extra": {        
+    "extra": {
+        "installer-name": "Application",
         "zf": {
             "module": "Application",
             "config-provider": "Application\\ConfigProvider"
