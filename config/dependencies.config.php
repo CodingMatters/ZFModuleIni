@@ -6,9 +6,6 @@
  * @see https://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/
  */
 
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Application\Factory;
-
 return [
     'factories'             => [],
     'services'              => [],

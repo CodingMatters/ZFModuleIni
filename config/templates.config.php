@@ -6,14 +6,14 @@ return [
         'template_map' => [],
         'template_path_stack' => [
             'application' => __DIR__ . '/../templates',
-        ],
+        ]
     ],
 
     // Zend Expressive Configuration
     'templates'     => [
         'map'       => [],
         'paths'     => [
-            'application'  => [__DIR__ . '/../view/page']
+            'application'  => [__DIR__ . '/../templates']
         ]
     ],
 
