@@ -16,13 +16,12 @@
         "php": "^5.6 || ^7.0",
         "roave/security-advisories": "dev-master",
         "composer/installers": "~1.0",        
-        "codingmatters/site-module-ini": "^1.0 || ^0.6"
+        "codingmatters/site-component-installer": "^1.0 || ~0.1"
     },
     "require-dev": {        
         "zendframework/zend-test": "^3.0",
         "squizlabs/php_codesniffer": "^2.3",
-        "phpbench/phpbench": "^0.11",
-        "filp/whoops": "^2.0"
+        "phpbench/phpbench": "^0.11"
     },
     "autoload": {
         "psr-4": {
