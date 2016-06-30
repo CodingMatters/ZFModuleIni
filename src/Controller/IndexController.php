@@ -33,6 +33,6 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel($this->getEvent()->getViewModel()->getVariables());
+        return new ViewModel();
     }
 }
