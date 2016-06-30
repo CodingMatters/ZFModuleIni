@@ -24,15 +24,37 @@
  * THE SOFTWARE.
  */
 
-namespace Application\Controller;
+namespace ApplicationTest;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Application\ConfigProvider;
 
-class IndexController extends AbstractActionController
+class ConfigProviderTest extends \PHPUnit_Framework_TestCase
 {
-    public function indexAction()
+    protected $config;
+
+    public function setUp()
     {
-        return new ViewModel();
+        $provider = new ConfigProvider();
+        $this->config = $provider();
+    }    
+
+    /**
+     * @test
+     * @dataProvider configKeys
+     */
+    public function moduleHasFollowingConfig($key)
+    {
+        $this->assertArrayHasKey($key, $this->config);
+    }
+    
+    public function configKeys()
+    {
+        return [
+            'dependencies'          => ['dependencies'],
+            'middleware_pipeline'   => ['middleware_pipeline'],
+            'routes'                => ['routes'],
+            'controllers'           => ['controllers'],
+            'controller_plugins'    => ['controller_plugins'],
+        ];
     }
 }
